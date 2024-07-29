@@ -7,4 +7,8 @@ class Product (val name: String,
                val price: BigDecimal,
                val description: String? = null,
                val image: String? = null,
-)
+) {
+    override fun toString(): String {
+        return "Product(name='$name', price=$price, description=$description, image=$image)"
+    }
+}

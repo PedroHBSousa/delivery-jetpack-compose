@@ -1,6 +1,7 @@
 package com.example.delivery.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
@@ -24,10 +25,16 @@ fun CardProductItem(
     elevation: Dp = 4.dp,
 
 ) {
+    var expanded by remember {
+        mutableStateOf(false)
+    }
     Card(
         modifier
             .fillMaxWidth()
-            .heightIn(150.dp),
+            .heightIn(150.dp)
+            .clickable {
+                expanded = !expanded
+            },
         elevation = elevation
     ) {
         Column {
@@ -53,11 +60,13 @@ fun CardProductItem(
                     text = product.price.toBrazilianCurrency()
                 )
             }
-            product.description?.let {
-                Text(
-                    text = product.description,
-                    Modifier.padding(16.dp)
-                )
+            if (expanded){
+                product.description?.let {
+                    Text(
+                        text = product.description,
+                        Modifier.padding(16.dp)
+                    )
+                }
             }
         }
     }

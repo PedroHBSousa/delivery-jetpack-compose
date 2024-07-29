@@ -96,7 +96,7 @@ fun ProductItem(product: Product, modifier: Modifier = Modifier){
             if (product.description != null) {
                 Column(
                     modifier = Modifier
-                        .height(200.dp)
+                        .height(250.dp)
                         .background(PurpleGrey40)
                         .fillMaxWidth()
                         .padding(16.dp)
